@@ -3,6 +3,7 @@ package task
 import (
 	"context"
 	"errors"
+	"fmt"
 	"time"
 )
 
@@ -15,6 +16,19 @@ const (
 )
 
 var errFakeFailure = errors.New("fake task: échec simulé")
+
+func ParseFakeBehavior(s string) (FakeTaskBehavior, error) {
+	switch s {
+	case "success":
+		return BehaviorSuccess, nil
+	case "fail":
+		return BehaviorFail, nil
+	case "timeout":
+		return BehaviorTimeout, nil
+	default:
+		return 0, fmt.Errorf("comportement fake inconnu: %q", s)
+	}
+}
 
 type FakeTask struct {
 	id       string
