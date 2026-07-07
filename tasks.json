@@ -1,0 +1,46 @@
+{
+  "tasks": [
+    {
+      "id": "t1",
+      "type": "print",
+      "params": { "message": "Bonjour depuis taskrunner" },
+      "timeout": "2s",
+      "retries": 0
+    },
+    {
+      "id": "t2",
+      "type": "calc",
+      "params": { "value": 100 },
+      "timeout": "1s",
+      "retries": 1
+    },
+    {
+      "id": "t3",
+      "type": "fake",
+      "params": { "behavior": "success", "delay": "200ms" },
+      "timeout": "2s",
+      "retries": 0
+    },
+    {
+      "id": "t4",
+      "type": "fake",
+      "params": { "behavior": "fail", "delay": "50ms" },
+      "timeout": "1s",
+      "retries": 2
+    },
+    {
+      "id": "t5",
+      "type": "fake",
+      "params": { "behavior": "timeout", "delay": "0s" },
+      "timeout": "300ms",
+      "retries": 1
+    },
+    {
+      "id": "t6",
+      "type": "download",
+      "params": { "url": "https://example.com", "dest": "/tmp/example.html" },
+      "timeout": "5s",
+      "retries": 2
+    }
+  ]
+}
